@@ -72,7 +72,31 @@ $$\varepsilon_{\text{access}} = \frac{\% \Delta \text{ Per-Capita Electricity}}{
 
 ---
 
-## 6. Project Architecture
+## 6. Predictive Scenario Modeling: COP30 Belém 1.5°C Mandate (2023–2035)
+
+Integrating the outcomes of the **UNFCCC COP30 Conference (Belém, 2025)**—specifically the **Axis 1 Action Agenda** commitment to triple global renewable capacity by 2030 ($r \approx 14.72\%\text{ CAGR}$), the **Baku-to-Belém Roadmap to 1.3T** in annual climate finance by 2035, and the **Roadmap for Transitioning Away from Fossil Fuels**—this module simulates power grid trajectories from 2023 to 2035 across three scenarios:
+1. **Business-As-Usual (`BAU`):** Linear continuation of 2010–2022 generation slopes against exponential demographic growth.
+2. **Accelerated Policy:** Moderate compound clean energy expansion ($+8\%/\text{yr}$ for `CMR`/`KEN`; $1.5\times$ historical slope for `DEU`) with gradual thermal phase-down.
+3. **COP30 Belém 1.5°C (Tripling):** Full implementation of the $14.72\%/\text{yr}$ renewable tripling mandate and UNEZA grid/storage investments, paired with an orderly fossil phase-down ($-8\%/\text{yr}$ in emerging grids; $-18\%/\text{yr}$ in industrialized grids).
+
+![COP30 Scenario Projections 2035](figures/cop30_scenario_projections_2035.png)
+
+### Projected 2030 & 2035 Grid Milestones
+
+| Country | ISO | Scenario | Renewables 2030 (TWh) | Renewables 2035 (TWh) | Per-Capita 2030 (kWh) | Per-Capita 2035 (kWh) | Carbon Intensity 2030 (gCO2/kWh) | Carbon Intensity 2035 (gCO2/kWh) |
+| :--- | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Cameroon** | `CMR` | `BAU` | 6.11 | 6.62 | 297.36 | 291.84 | 338.16 | 357.48 |
+| **Cameroon** | `CMR` | `Accelerated Policy` | 9.79 | 14.39 | 352.67 | 415.29 | 175.39 | 123.52 |
+| **Cameroon** | `CMR` | `COP30 Belém 1.5°C` | **15.87** | **31.53** | **500.18** | **813.78** | **86.09** | **43.24** |
+| **Kenya** | `KEN` | `BAU` | 15.79 | 18.55 | 259.34 | 265.31 | 72.54 | 49.50 |
+| **Kenya** | `KEN` | `Accelerated Policy` | 21.06 | 30.95 | 346.01 | 444.63 | 72.71 | 53.20 |
+| **Kenya** | `KEN` | `COP30 Belém 1.5°C` | **34.14** | **67.84** | **539.69** | **945.15** | **40.39** | **26.87** |
+| **Germany** | `DEU` | `BAU` | 351.17 | 413.45 | 6,342.90 | 6,349.12 | 316.94 | 233.59 |
+| **Germany** | `DEU` | `Accelerated Policy` | 400.99 | 494.40 | 6,044.25 | 6,446.29 | 211.67 | 124.39 |
+| **Germany** | `DEU` | `COP30 Belém 1.5°C` | **754.62** | **1,058.39** | **9,405.71** | **12,302.30** | **78.49** | **36.31** |
+---
+
+## 7. Project Architecture
 
 ```text
 owid-energy-transition/
@@ -90,3 +114,4 @@ owid-energy-transition/
 ├── .gitignore
 ├── requirements.txt
 └── README.md
+
