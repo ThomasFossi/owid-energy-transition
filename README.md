@@ -50,9 +50,8 @@ While industrializing and developing economies require massive expansions in ele
 ## 7. Installation & Reproduction Instructions
 Clone the repository, create a virtual environment, install the package in editable mode, and execute the pipeline:
 
-```bash
 # Clone repository
-git clone [https://github.com/ThomasFossi/owid-energy-transition.git](https://github.com/ThomasFossi/owid-energy-transition.git)
+git clone https://github.com/ThomasFossi/owid-energy-transition.git
 cd owid-energy-transition
 
 # Create virtual environment and install dependencies
