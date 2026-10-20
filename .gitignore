@@ -1,17 +1,38 @@
 # Virtual Environment
 venv/
 ENV/
+env/
+.venv/
 
-# Data files (raw/processed datasets excluded from VCS)
-data/*.csv
-data/*.xlsx
-data/*.parquet
+# Data Files (Keeping raw local data out of version control, but tracking processed outputs)
+data/raw/
+data/processed/*.csv
+data/processed/*.parquet
+data/processed/*.xlsx
+
+# Documentation Build / Output Artifacts (Keeping source markdown/PDFs tracked, ignoring build outputs)
+docs/_build/
+docs/*.pdf
 
 # Python / Jupyter Caches
 __pycache__/
 .ipynb_checkpoints/
 *.pyc
+*.pyo
+*.pyd
+.pytest_cache/
 
-# OS files
+# IDE / Editor Files (VS Code, PyCharm)
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS Files
 .DS_Store
 Thumbs.db
+
+# Build / Distribution Artifacts
+dist/
+build/
+*.egg-info/
