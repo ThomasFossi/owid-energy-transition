@@ -62,7 +62,7 @@ pip install -e .
 # Run automated test suite
 pytest
 
-```
+
 ## 8. Roadmap & Contact
 * **Interactive Dashboard:** Streamlit web application currently in development (`app/dashboard.py` — **Coming Soon**).
 * **Future Roadmap:** Implementation of seasonal hydro/solar dispatch simulations for African river basins to model hydrological volatility.
