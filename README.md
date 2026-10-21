@@ -12,7 +12,7 @@ While industrializing and developing economies require massive expansions in ele
 
 ## 2. Three Key Findings
 1. **The Clean Poverty Paradox:** Sub-Saharan grids like Kenya (`KEN`) and Cameroon (`CMR`) operate with low carbon intensities ($\sim 110\text{--}280\text{ gCO}_2/\text{kWh}$) compared to industrial economies, yet suffer a 40-to-50x deficit in per-capita electricity supply ($\sim 238\text{--}294\text{ kWh/person}$). [View Trilemma Matrix](figures/energy_matrix_intensity_vs_access.png)
-2. **The Demographic Dilution Effect:** In Cameroon (`CMR`), gross electricity generation expanded by $+136.23\%$ between 2000 and 202, but because population grew by $+85.30\%$, net per-capita access grew by only $+27.49\%$. More than 80% of gross generation growth was absorbed by population expansion. [View Dilution Analysis](figures/access_growth_dilution_analysis.png)
+2. **The Demographic Dilution Effect:** In Cameroon (`CMR`), gross electricity generation expanded by $+136.23\%$ between 2000 and 2022, but because population grew by $+85.30\%$, net per-capita access grew by only $+27.49\%$. More than 80% of gross generation growth was absorbed by population expansion. [View Dilution Analysis](figures/access_growth_dilution_analysis.png)
 3. **COP30 Belém 1.5°C Leverage:** Modeling the COP30 Axis 1 renewable tripling mandate ($14.72\%$ CAGR through 2030) alongside the Baku-to-Belém USD $1.3\text{T}$ finance roadmap projects per-capita access scaling to $\sim 813\text{--}945\text{ kWh}$ by 2035 while driving grid carbon intensity below $45\text{ gCO}_2/\text{kWh}$. [View Scenario Fan Charts](figures/cop30_scenario_projections_2035.png)
 
 ---
@@ -29,7 +29,7 @@ While industrializing and developing economies require massive expansions in ele
 * **Demographic Dilution Identity:**
   $$1 + g_{\text{pc}} = \frac{1 + g_{\text{generation}}}{1 + g_{\text{population}}}$$
 * **Descriptive Access Elasticity ($\varepsilon_{\text{access}}$):**
-  $$\varepsilon_{\text{access}} = \frac{\%\Delta \text{ Per-Capita Electricity}}{\%\Delta \text{ Renewable Generation Generation}}$$
+  $$\varepsilon_{\text{access}} = \frac{\%\Delta \text{ Per-Capita Electricity}}{\%\Delta \text{ Renewable Generation}}$$
   *Note: $\varepsilon_{\text{access}}$ is a descriptive scaling indicator, not a causal elasticity.*
 
 ---

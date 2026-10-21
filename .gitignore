@@ -13,6 +13,7 @@ data/processed/*.xlsx
 # Documentation Build / Output Artifacts (Keeping source markdown/PDFs tracked, ignoring build outputs)
 docs/_build/
 docs/*.pdf
+docs/*.md
 
 # Python / Jupyter Caches
 __pycache__/
