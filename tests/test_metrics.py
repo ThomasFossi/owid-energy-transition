@@ -1,5 +1,5 @@
 """
-Unit tests for energy transition metrics and data processing functions.
+Unit tests for energy transition metrics and data processing functions. All test protocols are defined in this module.
 """
 
 import pandas as pd
