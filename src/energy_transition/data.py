@@ -9,10 +9,10 @@ import pandas as pd
 
 def load_and_clean_data(raw_data_path: str = "data/raw/owid-energy-data.csv") -> pd.DataFrame:
     """
-    Loads the raw OWID energy dataset, filters for sovereign entities within 
-    the 8-country cohort (1990-2024), and applies physics-based imputation. 1990 is the earliest year with complete data for 
-    all cohort members but also is the standard benchmark for global climate agreements like the Rio de Janeiro 1992 summit 
-    and the 1997 Kyoto Protocol. 
+    Loads the raw OWID energy dataset, filters for sovereign entities within the 8-country cohort (1990-2024), and applies 
+    physics-based imputation. 
+    1990 is the earliest year with complete data for all cohort members but also is the standard benchmark for global 
+    climate agreements like the Rio de Janeiro 1992 summit and the 1997 Kyoto Protocol. 
     """
     # Ensuring the raw data file exists before proceeding
     if not os.path.exists(raw_data_path):
