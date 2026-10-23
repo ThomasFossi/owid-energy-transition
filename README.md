@@ -6,7 +6,7 @@
 ---
 
 ## 1. Problem Statement & Engineering Relevance
-While industrializing and developing economies require massive expansions in electricity access to eradicate energy poverty, high population growth rates can dilute gross generation gains (meaning that, renewable capacity additions are absorbed simply maintaining per-capita supply for new citizens rather than raising living standards). This project analyzes 30+ years of macro-energy and power grid data across an 8-country cohort (**CMR, EGY, KEN, ZAF, DEU, FRA, CHN, USA**), evaluating historical trajectories against UNFCCC COP30 (Belém 2025) decarbonization and tripling mandates through 2035.
+While industrializing and developing economies require massive expansions in electricity access to eradicate energy poverty, high population growth rates can dilute gross generation gains (meaning that, renewable capacity additions are absorbed simply maintaining per-capita supply for new citizens rather than raising living standards). This project analyzes 30+ years of macro-energy and power grid data across an 8-country cohort (**CMR, EGY, KEN, ZAF, DEU, FRA, CHN, USA**), evaluating historical trajectories against the global renewable-capacity tripling target established in the COP28 UAE Consensus (First Global Stocktake) and subsequent implementation pathways through COP30 (Belém)..
 
 ---
 
@@ -43,7 +43,7 @@ While industrializing and developing economies require massive expansions in ele
 ## 6. Scenario Results, Uncertainty & Engineering Implications
 * **Business-As-Usual (BAU):** Extrapolates historical 2010–2022 Ordinary Least Squares (OLS) trends. Results in stagnation or regression of per-capita access in developing regions.
 * **Accelerated Policy:** Models moderate policy interventions (e.g., $8\%$ renewable CAGR for Sub-Saharan grids).
-* **COP30 Belém 1.5°C Mission:** Enforces the UNFCCC renewable tripling mandate ($14.72\%$ CAGR to 2030) and an orderly fossil phase-out ($\mathbf{-8\%/\text{yr}}$ in emerging grids, $\mathbf{-18\%/\text{yr}}$ in industrialized thermal grids).
+* **COP30 Belém 1.5°C Mission:** Models the pathway to meet the global renewable tripling mandate (originally adopted under the COP28 Global Stocktake / UAE Consensus at a 14.72% CAGR through 2030) alongside the Baku-to-Belém finance roadmap, enforcing an orderly fossil phase-out ($\mathbf{-8\%/\text{yr}}$ in emerging grids, $\mathbf{-18\%/\text{yr}}$ in industrialized thermal grids).
 
 ---
 
