@@ -31,6 +31,7 @@ While industrializing and developing economies require massive expansions in ele
 * **Descriptive Access Elasticity ($\varepsilon_{\text{access}}$):**
   $$\varepsilon_{\text{access}} = \frac{\%\Delta \text{ Per-Capita Electricity}}{\%\Delta \text{ Renewable Generation}}$$
   *Note: $\varepsilon_{\text{access}}$ is a descriptive scaling indicator, not a causal elasticity.*
+* **Top-Down Global Ambition vs. Sovereign NDCs:** The $14.72\%$ annual renewable growth rate is derived mathematically from the global tripling target established under the COP28 UAE Consensus ($3^{1/8} - 1$). Applying this rate to individual countries in the COP30 scenario is an **illustrative modeling assumption** to test local infrastructure requirements under a global benchmark, not an official country-specific NDC commitment.
 
 ---
 
@@ -43,7 +44,7 @@ While industrializing and developing economies require massive expansions in ele
 ## 6. Scenario Results, Uncertainty & Engineering Implications
 * **Business-As-Usual (BAU):** Extrapolates historical 2010–2022 Ordinary Least Squares (OLS) trends. Results in stagnation or regression of per-capita access in developing regions.
 * **Accelerated Policy:** Models moderate policy interventions (e.g., $8\%$ renewable CAGR for Sub-Saharan grids).
-* **COP30 Belém 1.5°C Mission:** Models the pathway to meet the global renewable tripling mandate (originally adopted under the COP28 Global Stocktake / UAE Consensus at a 14.72% CAGR through 2030) alongside the Baku-to-Belém finance roadmap, enforcing an orderly fossil phase-out ($\mathbf{-8\%/\text{yr}}$ in emerging grids, $\mathbf{-18\%/\text{yr}}$ in industrialized thermal grids).
+* **COP30 Belém 1.5°C Scenario (Modelling Benchmark):** Applies the global $14.72\%$ renewable expansion CAGR as a top-down stress test through 2030 alongside the Baku-to-Belém finance roadmap. This evaluates the physical generation scaling required in developing (CMR, KEN) and industrialized (DEU) grids to meet global climate benchmarks, while explicitly noting that national deployment rates will be governed by sovereign policy constraints and local financing availability.
 
 ---
 
