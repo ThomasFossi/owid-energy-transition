@@ -46,6 +46,12 @@ While industrializing and developing economies require massive expansions in ele
 * **Accelerated Policy:** Models moderate policy interventions (e.g., $8\%$ renewable CAGR for Sub-Saharan grids).
 * **COP30 Belém 1.5°C Scenario (Modelling Benchmark):** Applies the global $14.72\%$ renewable expansion CAGR as a top-down stress test through 2030 alongside the Baku-to-Belém finance roadmap. This evaluates the physical generation scaling required in developing (CMR, KEN) and industrialized (DEU) grids to meet global climate benchmarks, while explicitly noting that national deployment rates will be governed by sovereign policy constraints and local financing availability.
 
+### Scenario Sensitivity & Robustness Validation
+To ensure model resilience against varying policy assumptions, we performed a parameter sweep varying the **Renewable Expansion CAGR ($g_{\text{ren}}$)** between $10.0\%$ and $20.0\%$ alongside **Fossil Phase-Down Rates ($d_{\text{fos}}$)** between $-5\%/\text{yr}$ and $-18\%/\text{yr}$ through 2030:
+
+* **Fossil Dominance on Grid Intensity:** Sensitivity sweeps reveal that grid decarbonization speed is significantly more sensitive to the **fossil phase-down rate** than variations in renewable CAGR. Even with aggressive renewable scale-up ($20\%$), if thermal generation declines slowly ($-5\%/\text{yr}$), grid carbon intensity floors remain elevated due to residual baseline emissions.
+* **Internal Conservation Consistency:** All scenario records maintain strict physical bounds ($\ge 0$ generation and emissions), with per-capita access scaling dynamically against population compound growth rates.
+
 ---
 
 ## 7. Installation & Reproduction Instructions
