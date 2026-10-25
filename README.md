@@ -36,7 +36,8 @@ While industrializing and developing economies require massive expansions in ele
 ---
 
 ## 5. Historical Validation & Limitations
-* **Energy Balance Verification:** Automated unit tests (`pytest`) verify that fuel shares remain bounded between $0\%$ and $100\%$ and that historical calculations match multi-agency benchmarks.
+* **Energy Balance & Scenario Verification:** Automated unit tests (`pytest`) verify that fuel shares remain bounded between $0\%$ and $100\%$ and that historical calculations match multi-agency benchmarks.
+* **Parameterized Scenario & Policy Testing:** The test suite independently validates every projection scenario (`BAU`, `Accelerated Policy`, `COP30 Belém 1.5°C`) across all physical bounds, and asserts that policy mandates achieve higher renewable generation and lower carbon intensity than Business-As-Usual by 2035.
 * **Limitations:** Historical carbon intensity metrics rely on country-reported thermal efficiency averages. Baseline fossil emission factors are reverse-engineered from 2022 anchors and held constant across future projections.
 
 ---
