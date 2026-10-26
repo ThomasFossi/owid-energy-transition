@@ -70,6 +70,7 @@ Projections through 2035 are computed using parametric growth equations anchored
 1. **Business-As-Usual (BAU):**
    Extrapolates historical Ordinary Least Squares (OLS) trends ($r_{\text{slope}}, f_{\text{slope}}$) evaluated over the 2010–2022 window:
    $$\text{Ren}_{\text{BAU}}(t) = \max\left(0, \text{Ren}_{0} + r_{\text{slope}} \cdot t\right)$$
+   
    $$\text{Fos}_{\text{BAU}}(t) = \max\left(0, \text{Fos}_{0} + f_{\text{slope}} \cdot t\right)$$
 
 2. **Accelerated Policy:**
@@ -81,7 +82,7 @@ Projections through 2035 are computed using parametric growth equations anchored
    $$\text{Ren}_{\text{COP30}}(t) = \text{Ren}_{0} \cdot (1 + 0.1472)^t \quad (\text{for } t \le 8)$$
    $$\text{Fos}_{\text{COP30}}(t) = \text{Fos}_{0} \cdot (1 - d_{\text{fos}})^t$$
    *(Where $d_{\text{fos}} = 0.08/\text{yr}$ for emerging grids and $0.18/\text{yr}$ for industrialized thermal grids).*
-   
+
 ---
 
 ## 7. Installation & Reproduction Instructions
