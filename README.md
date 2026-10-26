@@ -32,6 +32,17 @@ While industrializing and developing economies require massive expansions in ele
   $$\varepsilon_{\text{access}} = \frac{\%\Delta \text{ Per-Capita Electricity}}{\%\Delta \text{ Renewable Generation}}$$
   *Note: $\varepsilon_{\text{access}}$ is a descriptive scaling indicator, not a causal elasticity.*
 * **Top-Down Global Ambition vs. Sovereign NDCs:** The $14.72\%$ annual renewable growth rate is derived mathematically from the global tripling target established under the COP28 UAE Consensus ($3^{1/8} - 1$). Applying this rate to individual countries in the COP30 scenario is an **illustrative modeling assumption** to test local infrastructure requirements under a global benchmark, not an official country-specific NDC commitment.
+### Data Dictionary & Variable Definitions
+
+| Variable Name | Type | Units | Description & Meaning | Treatment & Cleaning Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `electricity_generation` | Raw (OWID) | Terawatt-hours (TWh) | Total gross annual electricity generation from all power sources. | Imputed zeros for missing historical early-year entries where technology was absent. |
+| `renewables_electricity` | Raw (OWID) | Terawatt-hours (TWh) | Electricity generation from solar, wind, hydro, geothermal, and biomass. | Strictly zero-imputed prior to utility commercialization. |
+| `fossil_electricity` | Raw (OWID) | Terawatt-hours (TWh) | Combined generation from coal, oil, and natural gas thermal power plants. | Segmented linear interpolation capped at $\le 2$ consecutive missing years. |
+| `population` | Raw (OWID) | Persons | Total mid-year sovereign population estimate (UN revisions). | Used as the denominator for demographic dilution and per-capita scaling. |
+| `per_capita_electricity` | Derived | kWh / person | Annual electricity generation normalized by total national population. | Calculated as: $\frac{\text{electricity\_generation} \times 10^9}{\text{population}}$ |
+| `carbon_intensity_elec` | Raw (OWID) | $\text{gCO}_2 / \text{kWh}$ | Average lifecycle greenhouse gas emissions per unit of electricity generated. | Derived from thermal efficiencies and fuel carbon coefficients. |
+| `elasticity_eps` ($\varepsilon$) | Derived | Dimensionless | Access Elasticity: ratio of per-capita access growth to renewable generation growth. | Used to classify countries into substitution, dilution, or leverage regimes. |
 
 ---
 
