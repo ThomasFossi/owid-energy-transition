@@ -23,11 +23,12 @@ All scenario projections are anchored to historical 2022 sovereign baselines ext
   $$\text{Fos}_{\text{BAU}}(t) = \max\left(0, \text{Fos}_{0} + f_{\text{slope}} \cdot t\right)$$
 
 ### B. Accelerated Policy
-* **Design Rationale:** Represents moderate, regionally differentiated climate policy commitments.
-* **Parametric Rules:** 
-  * For emerging economies (`CMR`, `KEN`), renewables scale at an **8%** annual compound growth rate while fossil generation declines by **2%/yr**.
+* **Design Rationale:** Represents moderate, regionally differentiated climate policy commitments beyond business-as-usual trends.
+* **Parametric Rules (Regionally Differentiated):** 
+  * **Emerging Economies (`CMR`, `KEN`):** Renewables scale at an **8%** annual compound growth rate while fossil generation declines by **2%/yr**.
+  * **Industrialized & Advanced Grids (`DEU`, `USA`, `CHN`, etc.):** Renewables scale at a moderate **6% to 8%** annual compound growth rate, while fossil generation phases down more aggressively at **5% to 8%/yr** reflecting existing infrastructure replacement cycles and carbon pricing mechanisms.
 * **Equation:**
-  $$\text{Ren}_{\text{Acc}}(t) = \text{Ren}_{0} \cdot (1 + 0.08)^t, \quad \text{Fos}_{\text{Acc}}(t) = \text{Fos}_{0} \cdot (1 - 0.02)^t$$
+  $$\text{Ren}_{\text{Acc}}(t) = \text{Ren}_{0} \cdot (1 + g_{\text{ren, acc}})^t, \quad \text{Fos}_{\text{Acc}}(t) = \text{Fos}_{0} \cdot (1 - d_{\text{fos, acc}})^t$$
 
 ### C. COP30 Belém 1.5°C Mission (Modelling Benchmark)
 * **Design Rationale:** Enforces the global renewable tripling target established under the **COP28 UAE Consensus** ($3\text{x}$ capacity growth over 8 years, translating to a top-down CAGR of $g_{\text{ren}} = 3^{1/8} - 1 \approx \mathbf{14.72\%}$) through 2030, paired with an implementation roadmap.
