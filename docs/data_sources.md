@@ -42,7 +42,7 @@ Through out this modeling project and as we came to find out to be a general poi
 ---
 
 ## 4. Handling Missing or Anomalous Values
-To prevent data contamination prior to model ingestion (`src/energy_transition/data.py`), missing values undergo strict programmatic hygiene:
+To prevent data contamination prior to model ingestion (`src/energy_transition/data.py`), missing values undergo strict cleaning:
 * **Zero-Imputation for Emerging Tech:** Solar and wind generation entries prior to utility-scale deployment are imputed as strict physical zeros ($0.0\text{ TWh}$), reflecting actual technological absence rather than missing data records.
 * **Interior Linear Interpolation:** Legacy fossil and hydro time-series utilize segmented interior linear interpolation strictly capped at $\le 2$ consecutive missing years. Boundary extrapolation (filling missing values at start/end edges) is not sound practice and therefore not done in this project.
 
