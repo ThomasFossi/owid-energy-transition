@@ -84,7 +84,7 @@ Enforces the global renewable tripling target established in the **COP28 UAE Con
 $$\text{Ren}_{\text{COP30}}(t) = \text{Ren}_{0} \cdot (1 + 0.1472)^t \quad (\text{for } t \le 8)$$
 $$\text{Fos}_{\text{COP30}}(t) = \text{Fos}_{0} \cdot (1 - d_{\text{fos}})^t$$
 
-### Sample nymeric trace: COP30 Projection for Kenya (`KEN`)
+### Sample numeric trace: COP30 Projection for Kenya (`KEN`)
 To verify our Python implementation (`src/energy_transition/scenarios.py`), we trace a single COP30 projection from historical anchors to 2030:
 
 * **Step 1: Anchor Extraction ($t_0 = 2022$):**
