@@ -84,6 +84,26 @@ Enforces the global renewable tripling target established in the **COP28 UAE Con
 $$\text{Ren}_{\text{COP30}}(t) = \text{Ren}_{0} \cdot (1 + 0.1472)^t \quad (\text{for } t \le 8)$$
 $$\text{Fos}_{\text{COP30}}(t) = \text{Fos}_{0} \cdot (1 - d_{\text{fos}})^t$$
 
+### Sample nymeric trace: COP30 Projection for Kenya (`KEN`)
+To verify our Python implementation (`src/energy_transition/scenarios.py`), we trace a single COP30 projection from historical anchors to 2030:
+
+* **Step 1: Anchor Extraction ($t_0 = 2022$):**
+  * Baseline Renewable Generation ($\text{Ren}_0$): $11.5\text{ TWh}$
+  * Baseline Population ($\text{Pop}_0$): $54.0\text{ million}$
+  * Implied Population CAGR ($g_{\text{pop}}$): $2.2\%/\text{yr}$ ($0.022$)
+
+* **Step 2: Applying Growth Assumptions ($t = 3$ years, corresponding to 2025):**
+  * **Renewable Expansion ($14.72\%$ CAGR):**
+    $$\text{Ren}(3) = 11.5 \cdot (1 + 0.1472)^3 = 11.5 \cdot 1.5175 \approx 17.45\text{ TWh}$$
+  * **Population Expansion:**
+    $$\text{Pop}(3) = 54.0 \cdot (1 + 0.022)^3 = 54.0 \cdot 1.0674 \approx 57.64\text{ million}$$
+
+* **Step 3: Calculating Derived Endpoints ($t = 3$):**
+  * **Total Generation ($\text{Tot}_3$):** Assuming baseline fossil/geothermal holds at $\approx 2.5\text{ TWh}$, Total Generation $= 17.45 + 2.5 = 19.95\text{ TWh}$.
+  * **Per-Capita Access:**
+    $$\text{PerCapita}_3 = \frac{19.95 \times 10^9\text{ kWh}}{57,640,000\text{ persons}} \approx 346.12\text{ kWh/person}$$
+  * **Grid Carbon Intensity:** With expanding zero-carbon renewables diluting thermal inputs, grid intensity drops proportionally from its 2022 baseline anchor toward the $<45\text{ gCO}_2/\text{kWh}$ target.
+
 ---
 
 ## 7. Installation & Reproduction Instructions
