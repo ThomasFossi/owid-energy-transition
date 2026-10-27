@@ -64,7 +64,7 @@ To ensure model resilience against varying policy assumptions, we performed a pa
 * **Fossil Dominance on Grid Intensity:** Sensitivity sweeps reveal that grid decarbonization speed is significantly more sensitive to the **fossil phase-down rate** than variations in renewable CAGR. Even with aggressive renewable scale-up (20%), if thermal generation declines slowly (-5%/yr), grid carbon intensity floors remain elevated due to residual baseline emissions.
 * **Internal Conservation Consistency:** All scenario records maintain strict physical bounds ($\ge 0$ generation and emissions), with per-capita access scaling dynamically against population compound growth rates.
 
-#### Formal Scenario Mathematical Formulations
+### Formal Scenario Mathematical Formulations
 Projections through 2035 are computed using parametric growth equations anchored to 2022 sovereign baselines ($t_0 = 2022$). For each forecast year index $t$ (where $t = \text{Year} - 2022$), the scenarios are defined as follows:
 
 **1. Business-As-Usual (BAU):** 
@@ -74,12 +74,12 @@ $$\text{Ren}_{\text{BAU}}(t) = \max\left(0, \text{Ren}_{0} + r_{\text{slope}} \c
 $$\text{Fos}_{\text{BAU}}(t) = \max\left(0, \text{Fos}_{0} + f_{\text{slope}} \cdot t\right)$$
 
 **2. Accelerated Policy:** 
-Applies moderate structural policy interventions. For emerging economies (`CMR`, `KEN`), renewables scale at an $8\%$ annual compound growth rate while fossil fuels decline by $2\%/\text{yr}$.
+Applies moderate structural policy interventions. For emerging economies (`CMR`, `KEN`), renewables scale at an **8%** annual compound growth rate while fossil fuels decline by **2%/yr**.
 
 $$\text{Ren}_{\text{Acc}}(t) = \text{Ren}_{0} \cdot (1 + 0.08)^t, \quad \text{Fos}_{\text{Acc}}(t) = \text{Fos}_{0} \cdot (1 - 0.02)^t$$
 
 **3. COP30 Belém 1.5°C Mission (Modelling Benchmark):** 
-Enforces the global renewable tripling target established in the **COP28 UAE Consensus** ($3\text{x}$ growth over 8 years, translating to an annual CAGR of $g_{\text{ren}} = 3^{1/8} - 1 \approx 14.72\%$) through 2030, paired with accelerated fossil phase-out rates ($d_{\text{fos}}$ where $d_{\text{fos}} = 0.08/\text{yr}$ for emerging grids and $0.18/\text{yr}$ for industrialized thermal grids).
+Enforces the global renewable tripling target established in the **COP28 UAE Consensus** ($3\text{x}$ growth over 8 years, translating to an annual CAGR of $g_{\text{ren}} = 3^{1/8} - 1 \approx \mathbf{14.72\%}$) through 2030, paired with accelerated fossil phase-out rates ($d_{\text{fos}}$ where $d_{\text{fos}} = \mathbf{8\%/yr}$ for emerging grids and $\mathbf{18\%/yr}$ for industrialized thermal grids).
 
 $$\text{Ren}_{\text{COP30}}(t) = \text{Ren}_{0} \cdot (1 + 0.1472)^t \quad (\text{for } t \le 8)$$
 $$\text{Fos}_{\text{COP30}}(t) = \text{Fos}_{0} \cdot (1 - d_{\text{fos}})^t$$
