@@ -38,10 +38,10 @@ def test_projection_matches_verified_example():
     expected_renewable_twh = 17.18
     expected_fossil_twh = 1.23
     expected_total_twh = expected_renewable_twh + expected_fossil_twh
-    expected_per_capita_kwh = 317.57
+    expected_per_capita_kwh = 319.40
 
     # Allow a reasonable relative tolerance (e.g., 5%) for theoretical vs algorithmic differences
-    tolerance_rel = 0.05
+    tolerance_rel = 0.01
     
     # Verify that the forecasted values are within the expected tolerance of the analytically derived benchmarks
     assert kenya_2025["renewables_twh"] == pytest.approx(expected_renewable_twh, rel=tolerance_rel)
