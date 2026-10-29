@@ -26,14 +26,22 @@ This document provides a fully transparent, step-by-step numerical trace of the 
 ## 3. Methodology
 Projections are computed using parametric compound growth equations anchored to 2022 baseline values. For each forecast year index $t$ (where $t = \text{Year} - 2022$):
 
-1. **Renewable Expansion ($14.72\%$ CAGR):** Derived from the COP28 UAE Consensus global tripling target ($3\text{x}$ growth over 8 years, $g_{\text{ren}} = 3^{1/8} - 1 \approx 14.72\%$).
-   $$\text{Ren}_{\text{COP30}}(t) = \text{Ren}_{0} \cdot (1 + 0.1472)^t \quad (\text{for } t \le 8)$$
-2. **Fossil Phase-Down ($8\%/\text{yr}$ for emerging grids):**
-   $$\text{Fos}_{\text{COP30}}(t) = \text{Fos}_{0} \cdot (1 - 0.08)^t$$
-3. **Population Compound Growth:**
-   $$\text{Pop}(t) = \text{Pop}_{0} \cdot (1 + g_{\text{pop}})^t$$
-4. **Per-Capita Electricity Supply:**
-   $$\text{PerCapita}(t) = \frac{(\text{Ren}(t) + \text{Fos}(t)) \times 10^9}{\text{Pop}(t)}$$
+**1. Renewable Expansion ($14.72\%$ CAGR):** 
+Derived from the COP28 UAE Consensus global tripling target ($3\text{x}$ growth over 8 years, where $g_{\text{ren}} = 3^{1/8} - 1 \approx 14.72\%$).
+
+$$\text{Ren}_{\text{COP30}}(t) = \text{Ren}_{0} \cdot (1 + 0.1472)^t \quad (\text{for } t \le 8)$$
+
+**2. Fossil Phase-Down ($8\%/\text{yr}$ for emerging grids):**
+
+$$\text{Fos}_{\text{COP30}}(t) = \text{Fos}_{0} \cdot (1 - 0.08)^t$$
+
+**3. Population Compound Growth:**
+
+$$\text{Pop}(t) = \text{Pop}_{0} \cdot (1 + g_{\text{pop}})^t$$
+
+**4. Per-Capita Electricity Supply:**
+
+$$\text{PerCapita}(t) = \frac{(\text{Ren}(t) + \text{Fos}(t)) \times 10^9}{\text{Pop}(t)}$$
 
 ---
 
@@ -84,7 +92,7 @@ Projections are computed using parametric compound growth equations anchored to 
         """Normalizes annual generation (TWh) into kWh per capita."""
         return (generation_twh * 1e9) / population
     ```
-    
+
 ---
 
 ### Step B: Summary Trajectory Table (`KEN` COP30 Scenario)
