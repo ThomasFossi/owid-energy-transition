@@ -37,20 +37,54 @@ Projections are computed using parametric compound growth equations anchored to 
 
 ---
 
-## 4. Worked Calculation & Step-by-Step Trace
+## 4. Worked Calculation, Functions & Code Trace
 
 ### Step A: Intermediate Values for Year 3 ($t = 3$, corresponding to 2025)
+
 * **1. Renewable Generation Expansion:**
   $$\text{Ren}(3) = 11.5 \cdot (1 + 0.1472)^3 = 11.5 \cdot (1.5175) \approx 17.45\text{ TWh}$$
+  * **Code Implementation & Function:** Calculated in `src/energy_transition/scenarios.py` under the function `run_cop30_forecasts()`.
+  * **Corresponding Code Snippet:**
+    ```python
+    # Applied within the COP30 projection loop for t <= 8
+    ren_val = ren_0 * ((1.0 + cop30_cagr) ** t)
+    ```
+
 * **2. Fossil Generation Phase-Down ($8\%/\text{yr}$):**
   $$\text{Fos}(3) = 2.5 \cdot (1 - 0.08)^3 = 2.5 \cdot (0.7787) \approx 1.95\text{ TWh}$$
+  * **Code Implementation & Function:** Calculated in `src/energy_transition/scenarios.py` under `run_cop30_forecasts()`.
+  * **Corresponding Code Snippet:**
+    ```python
+    # Fossil phase-down for emerging grids (e.g., KEN, CMR)
+    fos_val = fos_0 * ((1.0 - d_fos_emerging) ** t)
+    ```
+
 * **3. Total Generation ($\text{Tot}_3$):**
   $$\text{Tot}(3) = 17.45 + 1.95 = 19.40\text{ TWh}$$
+  * **Code Implementation & Function:** Aggregated within the scenario dataframe builder in `src/energy_transition/scenarios.py`.
+  * **Corresponding Code Snippet:**
+    ```python
+    total_generation = ren_val + fos_val
+    ```
+
 * **4. Population Expansion ($2.2\%/\text{yr}$):**
   $$\text{Pop}(3) = 54.0 \cdot (1 + 0.022)^3 = 54.0 \cdot (1.0674) \approx 57.64\text{ million persons}$$
+  * **Code Implementation & Function:** Computed dynamically from demographic vectors in `src/energy_transition/scenarios.py`.
+  * **Corresponding Code Snippet:**
+    ```python
+    pop_val = pop_0 * ((1.0 + pop_cagr) ** t)
+    ```
+
 * **5. Per-Capita Access Endpoint:**
   $$\text{PerCapita}(3) = \frac{19.40 \times 10^9\text{ kWh}}{57,640,000\text{ persons}} \approx 336.57\text{ kWh/person}$$
-
+  * **Code Implementation & Function:** Calculated via `src/energy_transition/metrics.py` under `calculate_per_capita_electricity()`.
+  * **Corresponding Code Snippet:**
+    ```python
+    def calculate_per_capita_electricity(generation_twh, population):
+        """Normalizes annual generation (TWh) into kWh per capita."""
+        return (generation_twh * 1e9) / population
+    ```
+    
 ---
 
 ### Step B: Summary Trajectory Table (`KEN` COP30 Scenario)
