@@ -47,34 +47,35 @@ def run_cop30_forecasts(analysis_df: pd.DataFrame) -> pd.DataFrame:
         total_2022 = ren_2022 + fos_2022 + nuc_2022
         implied_fossil_ef = max((ci_2022 * total_2022) / max(fos_2022, 0.01), 550.0)
         
-        for idx, yr in enumerate(forecast_years, start=1):
-            proj_pop = pop_2022 * ((1 + pop_cagr) ** idx)
+        for yr in forecast_years:
+            years_elapsed = yr - 2022
+            proj_pop = pop_2022 * ((1 + pop_cagr) ** years_elapsed)
             
             # ---------------- 1. Business-As-Usual (BAU) ----------------
-            bau_ren = max(0.0, ren_2022 + ren_slope * idx)
-            bau_fos = max(0.0, fos_2022 + fos_slope * idx)
+            bau_ren = max(0.0, ren_2022 + ren_slope * years_elapsed)
+            bau_fos = max(0.0, fos_2022 + fos_slope * years_elapsed)
             bau_nuc = 0.0 if iso == 'DEU' else nuc_2022
             
             # ---------------- 2. Moderate Accelerated Policy ----------------
             if iso in ['CMR', 'KEN']:
-                acc_ren = ren_2022 * ((1 + 0.08) ** idx)
-                acc_fos = fos_2022 * ((1 - 0.02) ** idx)
+                acc_ren = ren_2022 * ((1 + 0.08) ** years_elapsed)
+                acc_fos = fos_2022 * ((1 - 0.02) ** years_elapsed)
             else:
-                acc_ren = ren_2022 + (ren_slope * 1.5) * idx
-                acc_fos = fos_2022 * ((1 - 0.10) ** idx)
+                acc_ren = ren_2022 + (ren_slope * 1.5) * years_elapsed
+                acc_fos = fos_2022 * ((1 - 0.10) ** years_elapsed)
             acc_nuc = 0.0
             
             # ---------------- 3. COP30 Belém 1.5°C Mission ----------------
             if iso in ['CMR', 'KEN']:
-                cop_ren = ren_2022 * ((1 + cop30_ren_cagr) ** idx)
-                cop_fos = fos_2022 * ((1 - 0.08) ** idx)
+                cop_ren = ren_2022 * ((1 + cop30_ren_cagr) ** years_elapsed)
+                cop_fos = fos_2022 * ((1 - 0.08) ** years_elapsed)
             else:
                 if yr <= 2030:
-                    cop_ren = ren_2022 * ((1 + cop30_ren_cagr) ** idx)
+                    cop_ren = ren_2022 * ((1 + cop30_ren_cagr) ** years_elapsed)
                 else:
                     ren_2030 = ren_2022 * 3.0
                     cop_ren = ren_2030 * ((1 + 0.07) ** (yr - 2030))
-                cop_fos = fos_2022 * ((1 - 0.18) ** idx)
+                cop_fos = fos_2022 * ((1 - 0.18) ** years_elapsed)
             cop_nuc = 0.0
 
             scenarios = [
