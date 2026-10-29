@@ -22,7 +22,7 @@ This document provides a fully transparent, step-by-step numerical trace of the 
 
   * Baseline Population ($\text{Pop}_0$): $54.25\text{ million persons}$
 
-  * **Implied Population Growth Rate ($g_{\text{pop}}$):** $2.2\%/\text{yr}$ ($0.022$). *Note on rationale:* This compound annual growth rate is derived empirically from the historical 2010–2022 UN World Population Prospect revisions embedded in the OWID dataset for Kenya, reflecting sustained demographic expansion typical of East African emerging economies.
+  * **Implied Population Growth Rate (**$g_{\text{pop}}$**):** $2.2\%/\text{yr}$ ($0.022$). *Note on rationale:* This compound annual growth rate is derived empirically from historical UN World Population Prospect revisions embedded in the OWID dataset for Kenya, reflecting sustained demographic expansion typical of East African emerging economies.
 
 * **Data Source:** Our World in Data (OWID) Energy Database, aggregating Ember global electricity data and UN World Population Prospects. Source files located in `data/raw/`.
 
@@ -63,7 +63,7 @@ $$
 \text{PerCapita}(t) = \frac{(\text{Ren}(t) + \text{Fos}(t)) \times 10^9}{\text{Pop}(t)}
 $$
 
-**5. Grid Carbon Intensity ($\text{gCO}_2/\text{kWh}$):**
+**5. Grid Carbon Intensity (**$\text{gCO}_2/\text{kWh}$**):**
 Carbon intensity is calculated dynamically as the weighted average emissions across all generation sources divided by total generation. Specifically, the implied fossil emission factor ($\text{EF}_{\text{fossil}}$) is derived from the 2022 baseline:
 
 $$
@@ -76,7 +76,7 @@ $$
 \text{CI}(t) = \frac{(\text{Fos}(t) \cdot \text{EF}_{\text{fossil}}) + (\text{Ren}(t) \cdot 20.0)}{\text{Tot}(t)}
 $$
 
-*(Assuming a nominal lifecycle emissions factor of $20.0\text{ gCO}_2/\text{kWh}$ for renewables such as geothermal and hydro).*
+*(Assuming a nominal lifecycle emissions factor of* $20.0\text{ gCO}_2/\text{kWh}$ *for renewables such as geothermal and hydro).*
 
 ## 4. Worked Calculation, Functions & Code Trace
 
@@ -121,6 +121,15 @@ $$
   \text{Tot}(3) = 17.18 + 1.23 = 18.41\text{ TWh}
   $$
 
+  * **Code Implementation & Function:** Aggregated within the scenario dataframe builder in `src/energy_transition/scenarios.py`.
+
+  * **Corresponding Code Snippet:**
+
+    ```
+    total_twh = ren_val + fos_val
+    
+    ```
+
 * **4. Population Expansion (**$2.2\%/\text{yr}$**):**
   
 
@@ -128,12 +137,30 @@ $$
   \text{Pop}(3) = 54.25 \cdot (1 + 0.022)^3 \approx 57.64\text{ million persons}
   $$
 
+  * **Code Implementation & Function:** Computed dynamically from demographic vectors in `src/energy_transition/scenarios.py`.
+
+  * **Corresponding Code Snippet:**
+
+    ```
+    proj_pop = pop_2022 * ((1 + pop_cagr) ** years_elapsed)
+    
+    ```
+
 * **5. Per-Capita Access Endpoint:**
   
 
   $$
-  \text{PerCapita}(3) = \frac{18.41 \times 10^9\text{ kWh}}{57,640,000\text{ persons}} \approx 317.57\text{ kWh/person}
+  \text{PerCapita}(3) = \frac{18.41 \times 10^9\text{ kWh}}{57,640,000\text{ persons}} \approx 319.40\text{ kWh/person}
   $$
+
+  * **Code Implementation & Function:** Calculated via `src/energy_transition/metrics.py` under `calculate_per_capita_electricity()`.
+
+  * **Corresponding Code Snippet:**
+
+    ```
+    per_capita_kwh = (total_twh * 1e9) / population
+    
+    ```
 
 * **6. Grid Carbon Intensity:**
   
@@ -142,12 +169,21 @@ $$
   \text{CI}(3) = \frac{(1.23 \cdot \text{EF}_{\text{fossil}}) + (17.18 \cdot 20.0)}{18.41} \approx 80.2\text{ gCO}_2/\text{kWh}
   $$
 
+  * **Code Implementation & Function:** Computed dynamically in `src/energy_transition/scenarios.py`.
+
+  * **Corresponding Code Snippet:**
+
+    ```
+    carbon_intensity_elec = ((fos_val * ef_fossil) + (ren_val * 20.0)) / total_twh
+    
+    ```
+
 ### Step B: Summary Trajectory Table (`KEN` COP30 Scenario)
 
 | Year | Status | Renewable Gen ($\text{TWh}$) | Fossil Gen ($\text{TWh}$) | Total Gen ($\text{TWh}$) | Population (M) | Per-Capita ($\text{kWh/person}$) | Grid Intensity ($\text{gCO}_2/\text{kWh}$) | 
 | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | 
 | **2022 (**$t=0$**)** | Historical | $11.38$ | $1.58$ | $12.96$ | $54.25$ | $238.89$ | $109.6$ | 
-| **2025 (**$t=3$**)** | Projected | $17.18$ | $1.23$ | $18.41$ | $57.64$ | $319.39$ | $80.2$ | 
+| **2025 (**$t=3$**)** | Projected | $17.18$ | $1.23$ | $18.41$ | $57.64$ | $319.40$ | $80.2$ | 
 | **2030 (**$t=8$**)** | Projected | $34.14$ | $0.81$ | $34.95$ | $64.29$ | $543.63$ | $40.5$ | 
 
 ## 5. Validation & Test Verification
