@@ -6,8 +6,8 @@
 
 ---
 
-## 2. Modeling Simplifications & Assumptions
-* **Constant Fossil Emission Factors:** Baseline fossil emission factors ($EF_{\text{fossil}}$) derived from 2022 anchors are held constant across future projections through 2035. This isolates the impact of generation mix shifts but omits potential efficiency gains or fuel-switching (e.g., coal-to-gas transitions) within the thermal fleet itself.
+### 2. Modeling Simplifications & Assumptions
+* **Constant or Parametric Fossil Baselines:** While COP30 scenarios apply a rigid annual phase-down rate ($d_{\text{fos}}$), real-world emerging economies like Kenya maintain active exploratory pipelines for new domestic fossil gas and oil reserves. Consequently, actual sovereign thermal generation could experience temporary upward deviations before structural phase-down occurs.
 * **Top-Down Global Ambition vs. Sovereign NDCs:** As established in our methodology, applying the global **14.72%** renewable tripling CAGR to individual countries serves as an **illustrative top-down modeling stress-test** rather than an official, legally binding national NDC commitment. Actual national deployment will depend heavily on localized grid constraints, capital availability, and sovereign policy enforcement.
 * **Exclusion of Storage & Grid Congestion:** The model focuses on gross generation and demographic dilution balances, assuming sufficient transmission capacity and battery storage buildout to absorb intermittent renewable surges without curtailment penalties.
 
